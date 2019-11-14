@@ -1,106 +1,68 @@
 import 'package:flutter/material.dart';
-import './to-do-list.dart';
+import './beta-to-do-list.dart';
+import './settingsPage.dart';
+import './time_table.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 void main() {
-  runApp(MaterialApp(
-    title: 'Alpha',
-    home: HP(),
-  ));
+  initializeDateFormatting().then((_) => MyHomePage());
+  runApp(HomePage());
 }
 
-class HP extends StatelessWidget {
+class HomePage extends StatelessWidget {
+  List <String> qlist  = [];
+  String diff ;
+  //TODO : add this is db
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('Alpha_home_page'),
-        ),
-        body: Row(
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  //TO DO LIST bUTTON
-                  Center(
-                    child: RaisedButton(
-                      child: Text('To - Do - List'),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ToDoList()),
-                        );
-                      },
-                      focusElevation: 10.0,
-                      focusColor: Colors.blue,
-                    ),
-                  ),
-                  //TIME TABLE BUTTON
-                  //TODO: time table
-                  Center(
-                    child: RaisedButton(
-                      child: Text('TimeTable'),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => TimeTable()),
-                        );
-                      },
-                      focusElevation: 10.0,
-                      focusColor: Colors.blue,
-                    ),
-                  ),
-                ],
-              ),
-              Column(
-                children: <Widget>[
-                  // TODO: create MG page
-                  Center(
-                    child: RaisedButton(
-                      child: Text('Marks graph'),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => MarksGraph()),
-                        );
-                      },
-                      focusElevation: 10.0,
-                      focusColor: Colors.blue,
-                    ),
-                  ),
-                ],
-              )
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          backgroundColor: Colors.yellow.withOpacity(0.8),
+          appBar: AppBar(
+            backgroundColor: Colors.deepPurple,
+            bottom: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.timer)),
+                Tab(icon: Icon(Icons.list)),
+                Tab(icon: Icon(Icons.timeline)),
+              ],
+            ),
+            title: Row(children: <Widget>[Text('Time Conciser                                                    '),
+            IconButton(icon: Icon(Icons.settings), onPressed: () => routeSettingsPage()),],) 
+          ),
+          body: TabBarView(
+            children: [
+              MyHomePage(),
+              TodoList(),
+              Icon(Icons.directions_bike),
             ],
           ),
-        );
-  }
-}
-
-class ToDoList extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return TodoList();
-  }
-}
-
-class TimeTable extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Time Table"),
+          bottomNavigationBar: BottomAppBar(
+            color:  Colors.deepPurple,
+            child : Text ('$qselect()' , style:  TextStyle(color: Colors.white , fontSize: 18.0)),
+          ),
+        ),
       ),
-      body: Center(),
     );
   }
-}
-
-class MarksGraph extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Marks Graph"),
-      ),
-      body: Center(),
-    );
+  void routeSettingsPage()
+  {
+    MaterialPageRoute(builder: (context) => SettingsPage());
   }
+
+  String qselect ()
+        {
+           int current  = 0;
+           DateTime dt;
+           if (DateTime.now().difference(dt).inHours > 24)
+           {
+             dt = DateTime.now();
+             current += 1;
+           }
+           return qlist[current];
+        }
 }

@@ -1,8 +1,8 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
 export "FLUTTER_ROOT=/Users/chinkesh/development/flutter"
-export "FLUTTER_APPLICATION_PATH=/Users/chinkesh/Documents/GitHub/timeMachine"
-export "FLUTTER_TARGET=/Users/chinkesh/Documents/GitHub/timeMachine/lib/main.dart"
+export "FLUTTER_APPLICATION_PATH=/Users/chinkesh/Documents/Cisco_Files/Beta/beta_time_machine"
+export "FLUTTER_TARGET=/Users/chinkesh/Documents/Cisco_Files/Beta/beta_time_machine/lib/main.dart"
 export "FLUTTER_BUILD_DIR=build"
 export "SYMROOT=${SOURCE_ROOT}/../build/ios"
 export "FLUTTER_FRAMEWORK_DIR=/Users/chinkesh/development/flutter/bin/cache/artifacts/engine/ios"
