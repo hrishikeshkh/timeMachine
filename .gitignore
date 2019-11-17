@@ -1,0 +1,5 @@
+#Ignonre the build folder
+build/
+
+#Ignore pubspec.lock
+pubspec.lock
