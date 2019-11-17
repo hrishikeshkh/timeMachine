@@ -34,7 +34,7 @@ class NoteListState extends State<NoteList> {
 	    appBar: AppBar(
 		    title: Text('Notes'),
 	    ),
-
+      backgroundColor: Colors.deepPurple,
 	    body: getNoteListView(),
 
 	    floatingActionButton: FloatingActionButton(
@@ -59,7 +59,7 @@ class NoteListState extends State<NoteList> {
 			itemCount: count,
 			itemBuilder: (BuildContext context, int position) {
 				return Card(
-					color: Colors.white,
+					color: Colors.yellow,
 					elevation: 2.0,
 					child: ListTile(
 
@@ -110,14 +110,14 @@ class NoteListState extends State<NoteList> {
 	Icon getPriorityIcon(int priority) {
 		switch (priority) {
 			case 1:
-				return Icon(Icons.play_arrow);
+				return Icon(Icons.expand_less);
 				break;
 			case 2:
-				return Icon(Icons.keyboard_arrow_right);
+				return Icon(Icons.expand_more);
 				break;
 
 			default:
-				return Icon(Icons.keyboard_arrow_right);
+				return Icon(Icons.expand_more);
 		}
 	}
 
