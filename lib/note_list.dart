@@ -31,9 +31,11 @@ class NoteListState extends State<NoteList> {
 
     return Scaffold(
 
-	    appBar: AppBar(
-		    title: Text('Notes'),
-	    ),
+	    appBar: PreferredSize(
+        preferredSize: Size.fromHeight(40.0),
+        child : AppBar(
+		    title: Center (child : Text('TO-DO List')),       
+	    ),),
       backgroundColor: Colors.deepPurple,
 	    body: getNoteListView(),
 

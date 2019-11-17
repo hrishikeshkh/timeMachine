@@ -32,6 +32,8 @@ class NoteDetailState extends State<NoteDetail> {
 
 	NoteDetailState(this.note, this.appBarTitle);
 
+  
+
 	@override
   Widget build(BuildContext context) {
 
@@ -48,6 +50,7 @@ class NoteDetailState extends State<NoteDetail> {
 	    },
 
 	    child: Scaffold(
+        backgroundColor: Colors.yellow,
 	    appBar: AppBar(
 		    title: Text(appBarTitle),
 		    leading: IconButton(icon: Icon(
@@ -126,7 +129,10 @@ class NoteDetailState extends State<NoteDetail> {
 						    ),
 					    ),
 				    ),
-
+              Padding(
+                padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
+					    
+              ),
 				    // Fourth Element
 				    Padding(
 					    padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
