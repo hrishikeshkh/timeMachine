@@ -3,16 +3,22 @@ import './beta-to-do-list.dart';
 import './settingsPage.dart';
 import './time_table.dart';
 import 'package:intl/date_symbol_data_local.dart';
-// import 'package:table_calendar/table_calendar.dart';
+import 'dart:async';
+//import 'package:table_calendar/table_calendar.dart';
 
 void main() {
   initializeDateFormatting().then((_) => MyHomePage());
-  runApp(HomePage());
+  runApp  (HomePage());
+
 }
 
 class HomePage extends StatelessWidget {
   List <String> qlist  = [];
   String diff ;
+
+  String q ;
+
+
   //TODO : add this is db
   @override
   Widget build(BuildContext context) {
@@ -43,7 +49,7 @@ class HomePage extends StatelessWidget {
           ),
           bottomNavigationBar: BottomAppBar(
             color:  Colors.deepPurple,
-            child : Text ('$qselect()' , style:  TextStyle(color: Colors.white , fontSize: 18.0)),
+            child : qprint(),
           ),
         ),
       ),
@@ -65,4 +71,9 @@ class HomePage extends StatelessWidget {
            }
            return qlist[current];
         }
+    Text qprint ()
+    {
+      q  = qselect();
+      return Text ('$q' , style: TextStyle(color: Colors.white),);
+    }
 }
