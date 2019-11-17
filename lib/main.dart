@@ -3,7 +3,7 @@ import './beta-to-do-list.dart';
 import './settingsPage.dart';
 import './time_table.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:table_calendar/table_calendar.dart';
+// import 'package:table_calendar/table_calendar.dart';
 
 void main() {
   initializeDateFormatting().then((_) => MyHomePage());
@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
           body: TabBarView(
             children: [
               MyHomePage(),
-              todolist(),
+              Todolist(),
               Icon(Icons.directions_bike),
             ],
           ),

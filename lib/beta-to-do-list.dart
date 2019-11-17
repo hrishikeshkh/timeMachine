@@ -280,18 +280,18 @@ import 'package:flutter/material.dart';
 import './note_list.dart';
 import './note_detail.dart';
 
-class todolist extends StatelessWidget {
+class Todolist extends StatelessWidget {
 
 	@override
   Widget build(BuildContext context) {
 
     return MaterialApp(
-	    title: 'NoteKeeper',
+	    title: 'To-Do List',
 	    debugShowCheckedModeBanner: false,
 	    theme: ThemeData(
 		    primarySwatch: Colors.deepPurple
 	    ),
-	    home: NoteDetail(),
+	    home: NoteList(),
     );
   }
 }
