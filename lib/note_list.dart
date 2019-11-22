@@ -31,12 +31,10 @@ class NoteListState extends State<NoteList> {
 
     return Scaffold(
 
-	    appBar: PreferredSize(
-        preferredSize: Size.fromHeight(40.0),
-        child : AppBar(
-		    title: Center (child : Text('TO-DO List')),       
-	    ),),
-      backgroundColor: Colors.deepPurple,
+	    appBar: AppBar(
+		    title: Text('Notes'),
+	    ),
+
 	    body: getNoteListView(),
 
 	    floatingActionButton: FloatingActionButton(
@@ -61,7 +59,7 @@ class NoteListState extends State<NoteList> {
 			itemCount: count,
 			itemBuilder: (BuildContext context, int position) {
 				return Card(
-					color: Colors.yellow,
+					color: Colors.white,
 					elevation: 2.0,
 					child: ListTile(
 
@@ -112,14 +110,14 @@ class NoteListState extends State<NoteList> {
 	Icon getPriorityIcon(int priority) {
 		switch (priority) {
 			case 1:
-				return Icon(Icons.expand_less);
+				return Icon(Icons.play_arrow);
 				break;
 			case 2:
-				return Icon(Icons.expand_more);
+				return Icon(Icons.keyboard_arrow_right);
 				break;
 
 			default:
-				return Icon(Icons.expand_more);
+				return Icon(Icons.keyboard_arrow_right);
 		}
 	}
 

@@ -289,7 +289,7 @@ class Todolist extends StatelessWidget {
 	    title: 'To-Do List',
 	    debugShowCheckedModeBanner: false,
 	    theme: ThemeData(
-		    primarySwatch: Colors.deepPurple,
+		    primarySwatch: Colors.deepPurple
 	    ),
 	    home: NoteList(),
     );
