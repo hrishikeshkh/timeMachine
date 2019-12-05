@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ProTips extends StatelessWidget
 {
 
-  List <String> tips = ['chem is volatile' , 'not brought si eqavalent to not done'];
+  List <String> tips = ['chem is volatile' , 'not brought is equivalent to not done'];
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

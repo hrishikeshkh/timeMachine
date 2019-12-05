@@ -4,6 +4,7 @@ import './beta-to-do-list.dart';
 import './settingsPage.dart';
 import './time_table.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'chatbot.dart';
 import 'dart:async';
 import 'addfeature/protips.dart';
 //import 'package:table_calendar/table_calendar.dart';
@@ -108,7 +109,14 @@ class HomePage extends StatelessWidget {
           ),
           bottomNavigationBar: BottomAppBar(
             color:  Colors.deepPurple,
-            child : qprint(),
+            child : Column( 
+              children: <Widget>[qprint(), RaisedButton( 
+                onPressed: ()
+                {
+                  MaterialPageRoute(builder: (context) => HomePageDialogflow()); 
+                },
+               )],
+            )
           ),
         ),
       ),
