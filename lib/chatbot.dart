@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dialogflow/dialogflow_v2.dart';
+import './database_helper.dart';
+import './note.dart';
+import './note_detail.dart';
+import 'addfeature/editschedule.dart';
+import 'addfeature/updatemks.dart';
 
 class HomePageDialogflow extends StatefulWidget {
   HomePageDialogflow({Key key, this.title}) : super(key: key);
@@ -167,3 +172,34 @@ class ChatMessage extends StatelessWidget {
     );
   }
 }
+
+void AddTaskThruBot (String task , DateTime dateTime ) async
+{
+  DatabaseHelper helper;
+    Note note;
+    note.date = dateTime.month.toString() + dateTime.day.toString();
+    note.title = task;
+    int result;
+		if (note.id != null) {  // Case 1: Update operation
+			result = await helper.updateNote(note);
+		} else { // Case 2: Insert Operation
+			result = await helper.insertNote(note);
+		}
+		if (result != 0) {  // Success
+			//_showAlertDialog('Status', 'Note Saved Successfully');
+		} else {  // Failure
+			//_showAlertDialog('Status', 'Problem Saving Note');
+		}
+}
+
+void EditSchedule ()
+{
+    MaterialPageRoute(builder: (context) => ScheduleEdit());
+}
+
+void MarksUpdate ()
+{
+    MaterialPageRoute(builder: (context) =>  UpdateMarks());
+}
+
+
