@@ -1,158 +1,194 @@
+import 'package:beta_time_machine/changetheme/theme.dart';
+import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import './beta-to-do-list.dart';
 import './settingsPage.dart';
 import './time_table.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'chatbot.dart';
 import 'dart:async';
+import 'changetheme/theme.dart';
 import 'addfeature/protips.dart';
+import 'package:dynamic_theme/theme_switcher_widgets.dart';
+import './destress/destressmaster.dart';
+
 //import 'package:table_calendar/table_calendar.dart';
 
 void main() {
   initializeDateFormatting().then((_) => MyHomePage());
-  runApp  (MyApp());
+  runApp  (MyAppreal());
 }
 
-class MyApp extends StatelessWidget
+class MyAppreal extends StatefulWidget
 {
   @override
-  Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream: bloc.darkThemeEnabled,
-      initialData: false,
-      builder: (context, snapshot) => MaterialApp(
-          theme: snapshot.data ? ThemeData.dark() : ThemeData.light(),
-          home: HomePage(snapshot.data)),
-    );
+  State<StatefulWidget> createState() {
+    return HomePage();
   }
   
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends State<MyAppreal> {
   List <String> qlist  = [];
   String diff ;
   bool dark = false;
   String q ;
-
-   final bool darkThemeEnabled;
-
-  HomePage(this.darkThemeEnabled);
+  DynamicTheme dynamicTheme = new DynamicTheme();
+   //final bool darkThemeEnabled;
+  //final ValueChanged<Brightness> onSelectedTheme;
+  
+  //HomePage(this.darkThemeEnabled);
   //TODO : add this is db
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: DefaultTabController(
-        length: 3,
-        child: Scaffold(
-         drawer : Drawer(
-        // Add a ListView to the drawer. This ensures the user can scroll
-        // through the options in the drawer if there isn't enough vertical
-        // space to fit everything.
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child: Text('Time Conciser'),
-              decoration: BoxDecoration(
-                color: Colors.deepPurple,
-              ),
-            ),
-            ListTile(
-              title: Text('Pro - Tips'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                MaterialPageRoute(builder: (context) => ProTips());
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('Update your Marks'),
-              onTap: () {
-                //MaterialPageRoute(builder: (context) => marksupdate());
-                 Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text("Dark Theme"),
-              trailing: Switch(
-                value: darkThemeEnabled,
-                onChanged: bloc.changeTheme,
-              ),
-            )
-          ],
-        )
-          ),
-          backgroundColor: Colors.yellow.withOpacity(0.8),
-          appBar: AppBar(
-            backgroundColor: Colors.deepPurple,
-            bottom: TabBar(
-              tabs: [
-                Tab(icon: Icon(Icons.timer)),
-                Tab(icon: Icon(Icons.list)),
-                Tab(icon: Icon(Icons.timeline)),
-              ],
-            ),
-            title: Row(children: <Widget>[Text('Time Conciser                                                    '),
-            IconButton(icon: Icon(Icons.settings), onPressed: () => routeSettingsPage()),],) 
-          ),
-          body: TabBarView(
-            children: [
-              MyHomePage(),
-              Todolist(),
-              Icon(Icons.directions_bike),
-            ],
-          ),
-          bottomNavigationBar: BottomAppBar(
-            color:  Colors.deepPurple,
-            child : Column( 
-              children: <Widget>[qprint(), RaisedButton( 
-                onPressed: ()
-                {
-                  MaterialPageRoute(builder: (context) => HomePageDialogflow()); 
-                },
-               )],
-            )
-          ),
-        ),
-      ),
-    );
+      return ChangeNotifierProvider<ThemeChanger>(
+        builder: (_) => ThemeChanger(ThemeData.dark()),
+
+       child : new MaterialAppWithTheme()
+      );
+    void changeBrightness() {
+    DynamicTheme.of(context).setBrightness(Theme.of(context).brightness == Brightness.dark? Brightness.light: Brightness.dark);
+  }
   }
   void routeSettingsPage()
   {
     MaterialPageRoute(builder: (context) => SettingsPage());
   }
 
-  String qselect ()
-        {
-           int current  = 0;
-           DateTime dt;
-           if (DateTime.now().difference(dt).inHours > 24)
-           {
-             dt = DateTime.now();
-             current += 1;
-           }
-           return qlist[current];
-        }
-    Text qprint ()
-    {
-      q  = qselect();
-      return Text ('$q' , style: TextStyle(color: Colors.white),);
-    }
-  void ChangeTheme ()
+  // String qselect ()
+  //       {
+  //          int current  = 0;
+  //          DateTime dt;
+  //          if (DateTime.now().difference(dt).inHours > 24)
+  //          {
+  //            dt = DateTime.now();
+  //            current += 1;
+  //          }
+  //          return qlist[current];
+  //       }
+  //   Text qprint ()
+  //   {
+  //     q  = qselect();
+  //     return Text ('$q' , style: TextStyle(color: Colors.white),);
+  //   }
+  bool ChangeTheme ()
   {
     if (dark)
     {
-      dark= false;
+      return false;
+      dark = false;
     }
     else if (!dark)
     {
       dark = true;
+      return true;
     }
+  }
+}
+
+class MaterialAppWithTheme extends StatelessWidget {
+ 
+  @override
+  Widget build(BuildContext context) {
+    final theme = Provider.of<ThemeChanger>(context);
+    final _themeChanger = Provider.of<ThemeChanger>(context);
+
+    return MaterialApp(
+      title: 'overtime',
+      debugShowCheckedModeBanner: false,
+      theme: theme.getTheme(),
+      home: DefaultTabController(
+     length: 3,
+     child: Scaffold(
+      drawer : Drawer(
+     // Add a ListView to the drawer. This ensures the user can scroll
+     // through the options in the drawer if there isn't enough vertical
+     // space to fit everything.
+     child: ListView(
+       // Important: Remove any padding from the ListView.
+       padding: EdgeInsets.zero,
+       children: <Widget>[
+         DrawerHeader(
+           child: Text('Time Conciser'),
+           decoration: BoxDecoration(
+             color: Colors.deepPurple,
+           ),
+         ),
+         ListTile(
+           title: Text('Pro - Tips'),
+           onTap: () {
+             // Update the state of the app
+             // ...
+             // Then close the drawer
+             MaterialPageRoute(builder: (context) => ProTips());
+             Navigator.pop(context);
+           },
+         ),
+         ListTile(
+           title: Text('Update your Marks'),
+           onTap: () {
+             //MaterialPageRoute(builder: (context) => marksupdate());
+              Navigator.pop(context);
+           },
+         ),
+       ],
+     )
+       ),
+       ////backgroundColor: Colors.yellow.withOpacity(0.8),
+       appBar: AppBar(
+         ////backgroundColor: Colors.deepPurple,
+         bottom: TabBar(
+           tabs: [
+             Tab(icon: Icon(Icons.timer)),
+             Tab(icon: Icon(Icons.list)),
+             //Tab(icon: Icon(Icons.timeline)),
+             Tab(icon: Icon(Icons.casino)),
+           ],
+         ),
+         title: Row(           
+           children: <Widget>[Text('Time Conciser '),
+           Text('  '),
+         RaisedButton(
+           child : Text('Go Dark'),
+           onPressed: (){
+             _themeChanger.setTheme(ThemeData.dark());
+           }
+          ), //todo
+         RaisedButton(
+           padding: EdgeInsets.only(right: 1.0),
+           child: Text ('Go Light'),
+            onPressed: (){
+              _themeChanger.setTheme(ThemeData.light());
+            },
+         )
+         //IconButton(icon: Icon(Icons.settings), onPressed: () => routeSettingsPage()),
+         ],
+         ) 
+       ),
+       body: TabBarView(
+         children: [
+           MyHomePage(),
+           Todolist(),
+           //Icon(Icons.directions_bike),
+           DestressMaster(),
+         ],
+       ),
+       // bottomNavigationBar: BottomAppBar(
+       //   color:  Colors.deepPurple,
+       //   child : Column( 
+       //     children: <Widget>[Text('SC'), RaisedButton( 
+       //       onPressed: ()
+       //       {
+       //         MaterialPageRoute(builder: (context) => HomePageDialogflow()); 
+       //       },
+       //      )],
+       //   )
+       // ),
+     ),
+      ),
+    );
   }
 }
 
@@ -161,5 +197,6 @@ class Bloc {
   get changeTheme => _themeController.sink.add;
   get darkThemeEnabled => _themeController.stream;
 }
+
 
 final bloc = Bloc();

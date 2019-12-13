@@ -131,9 +131,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow.withOpacity(0.8),
+      //backgroundColor: Colors.yellow.withOpacity(0.8),
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
+        //backgroundColor: Colors.deepPurple,
         title: Text('Time-Table'),
       ),
       body: Column(
@@ -148,21 +148,28 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           const SizedBox(height: 8.0),
           Row(
             children: <Widget>[
-              Text('  '),
+              Text(""),
               ButtonTheme(
                 buttonColor: Colors.yellow,
                 minWidth: 198.0,
-                child: RaisedButton(
-                    disabledColor: Colors.deepPurple,
-                    child: Text('Task', style: TextStyle(color: Colors.white))),
+                child: FlatButton(
+                    //disabledColor: Colors.deepPurple,
+                    onPressed: () {},
+                    child: Opacity(
+                      opacity: 1.0,
+                    child : Text('TASK' , style: TextStyle(fontSize: 20.0),)),
+                )
               ),
-              Text(' '),
+              Text('|' , style : TextStyle(fontSize: 20.0)),
               ButtonTheme(
                 disabledColor: Colors.deepPurple,
                 minWidth: 198.0,
-                child: RaisedButton(
-                    child: Text('Time to commence',
-                        style: TextStyle(color: Colors.white))),
+                child: FlatButton(
+                    child: 
+                    Opacity(
+                      opacity: 1.0,
+                     child : Text('TIME TO COMMENCE' , style: TextStyle(fontSize: 15.0),)),
+                )
               )
             ],
           ),
@@ -315,7 +322,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     return Icon(
       Icons.add_box,
       size: 20.0,
-      color: Colors.blueGrey[800],
+      color: null,
     );
   }
 
@@ -383,7 +390,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           temp = k;
         } else {
           times.add(Text('$temp : $k',
-              style: TextStyle(color: Colors.white, fontSize: 20.0)));
+              style: TextStyle( fontSize: 20.0)));
         } //TODO : change to k.hours + k.minutes
       }
       j++;
@@ -392,7 +399,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     }
     return SafeArea(
         child: Card(
-            color: Colors.deepPurple,
+            //color: Colors.deepPurple,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15.0),
             ),
@@ -406,12 +413,12 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                               Text(
                                 '',
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 18.0),
+                                     fontSize: 18.0),
                               ),
                               Text(
                                 '$task',
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 18.0),
+                                    fontSize: 18.0),
                               ),
                                 Text('---------------------')
 
