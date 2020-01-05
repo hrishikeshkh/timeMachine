@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'game.dart';
+import 'destressmaster.dart';
 class Homesn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -11,11 +12,26 @@ class Homesn extends StatelessWidget {
     // than having to individually change instances of widgets.
     return new Scaffold(
         backgroundColor: const Color(0xFF000000),
-        body: new Center(
+        body:
+        SafeArea( 
+          child : Center( 
+        child : Column(
+         children : <Widget>[
+           Text (' '),
+           FloatingActionButton (
+             child :Icon(Icons.arrow_back , color: Colors.white,),
+             onPressed: (){
+                Navigator.push(context , MaterialPageRoute(builder: (context) => DestressMaster() ));
+                Navigator.pop(context);
+             },
+           ),
+           Text(' '),
+           Center(
           // Center is a layout widget. It takes a single child and positions it
           // in the middle of the parent.
           child: new Game(),
-        ) // This trailing comma makes auto-formatting nicer for build methods.
-        );
+        )]
+         ) // This trailing comma makes auto-formatting nicer for build methods.
+        )));
   }
 }

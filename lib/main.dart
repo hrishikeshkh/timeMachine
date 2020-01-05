@@ -89,7 +89,7 @@ class HomePage extends State<MyAppreal> {
 }
 
 class MaterialAppWithTheme extends StatelessWidget {
- 
+  bool ch;
   @override
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeChanger>(context);
@@ -150,6 +150,19 @@ class MaterialAppWithTheme extends StatelessWidget {
          title: Row(           
            children: <Widget>[Text('Time Conciser '),
            Text('  '),
+          //  Switch(
+          //    value: ch,
+          //    onChanged: (ch){
+          //      if (ch)
+          //      {
+          //        _themeChanger.setTheme(ThemeData.dark());
+          //      }
+          //      else
+          //      {
+          //        _themeChanger.setTheme(ThemeData.light());
+          //      }
+          //    },
+          //  )
          RaisedButton(
            child : Text('Go Dark'),
            onPressed: (){

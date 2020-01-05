@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class DestressMaster extends StatelessWidget
 {
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -19,25 +20,30 @@ class DestressMaster extends StatelessWidget
           )),
           Row(
             children: <Widget>[
+              Text (' '),
               Card(
                 child: RaisedButton(
-                    child : Text('Tic-Tac-Toe'),
+                    child : Text('TIC - TAC - TOE') ,
                   onPressed: ()
                   {
                     Navigator.push(context , MaterialPageRoute(builder: (context) => MyApptic() ));
                   },
                 )
               ),
-              RaisedButton(
-                child : Text('Snake'),
+              Text (' '),
+              Card (
+              child : RaisedButton(
+                child : Text ('SNAKEEE'),
                 onPressed: ()
                 {
                     Navigator.push(context , MaterialPageRoute(builder: (context) => Homesn() ));
-
                 },
               )
+              )
             ],
-          )
+          ),
+          Text('KEEP'),
+          Text ('CALM')
         ],
       ),
     );

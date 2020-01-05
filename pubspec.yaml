@@ -52,7 +52,8 @@ flutter:
   uses-material-design: true
   assets: 
    - assets/credentials.json
-   - images/tictac.jpg
+   - assets/images/tictac.png
+   - assets/images/snake.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
