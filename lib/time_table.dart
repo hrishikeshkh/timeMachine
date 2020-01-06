@@ -154,7 +154,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 minWidth: 198.0,
                 child: FlatButton(
                     //disabledColor: Colors.deepPurple,
-                    onPressed: () {},
+                    onPressed: (){
+                       print('nothing');
+                     },
                     child: Opacity(
                       opacity: 1.0,
                     child : Text('TASK' , style: TextStyle(fontSize: 20.0),)),
@@ -162,13 +164,15 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               ),
               Text('|' , style : TextStyle(fontSize: 20.0)),
               ButtonTheme(
-                disabledColor: Colors.deepPurple,
+                //disabledColor: Colors.deepPurple,
                 minWidth: 198.0,
                 child: FlatButton(
-                    child: 
-                    Opacity(
+                    child: Opacity(
                       opacity: 1.0,
                      child : Text('TIME TO COMMENCE' , style: TextStyle(fontSize: 15.0),)),
+                     onPressed: (){
+                       print('nothing');
+                     },
                 )
               )
             ],

@@ -18,30 +18,24 @@ class DestressMaster extends StatelessWidget
             child : Card(
             child: Text('We Trust you not to overdo this' , style: TextStyle(fontSize: 20.0),),
           )),
-          Row(
-            children: <Widget>[
+          
               Text (' '),
-              Card(
-                child: RaisedButton(
-                    child : Text('TIC - TAC - TOE') ,
-                  onPressed: ()
+              ListTile(
+                  title : Text('TIC - TAC - TOE') ,
+                  onTap: ()
                   {
                     Navigator.push(context , MaterialPageRoute(builder: (context) => MyApptic() ));
                   },
-                )
+                
               ),
-              Text (' '),
-              Card (
-              child : RaisedButton(
-                child : Text ('SNAKEEE'),
-                onPressed: ()
+              ListTile (
+                title : Text ('SNAKEEE'),
+                onTap: ()
                 {
                     Navigator.push(context , MaterialPageRoute(builder: (context) => Homesn() ));
                 },
               )
-              )
-            ],
-          ),
+              ,      
           Text('KEEP'),
           Text ('CALM')
         ],

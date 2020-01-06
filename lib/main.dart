@@ -94,7 +94,7 @@ class MaterialAppWithTheme extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeChanger>(context);
     final _themeChanger = Provider.of<ThemeChanger>(context);
-
+    //double width = MediaQuery.of(context).size.width;
     return MaterialApp(
       title: 'overtime',
       debugShowCheckedModeBanner: false,
@@ -111,7 +111,7 @@ class MaterialAppWithTheme extends StatelessWidget {
        padding: EdgeInsets.zero,
        children: <Widget>[
          DrawerHeader(
-           child: Text('Time Conciser'),
+           child: Text('OVERTIME'),
            decoration: BoxDecoration(
              color: Colors.deepPurple,
            ),
@@ -147,9 +147,9 @@ class MaterialAppWithTheme extends StatelessWidget {
              Tab(icon: Icon(Icons.casino)),
            ],
          ),
-         title: Row(           
-           children: <Widget>[Text('Time Conciser '),
-           Text('  '),
+         title: SafeArea(child : Row(           
+           children: <Widget>[Text('Overtime'),
+           //Text('  '),
           //  Switch(
           //    value: ch,
           //    onChanged: (ch){
@@ -163,14 +163,15 @@ class MaterialAppWithTheme extends StatelessWidget {
           //      }
           //    },
           //  )
-         RaisedButton(
+         FlatButton(
+           padding: EdgeInsets.only(right : 10.0 , left : 80),
            child : Text('Go Dark'),
            onPressed: (){
              _themeChanger.setTheme(ThemeData.dark());
            }
           ), //todo
-         RaisedButton(
-           padding: EdgeInsets.only(right: 1.0),
+         FlatButton(
+           padding: EdgeInsets.only(right: 10.0 , left : 10),
            child: Text ('Go Light'),
             onPressed: (){
               _themeChanger.setTheme(ThemeData.light());
@@ -179,7 +180,7 @@ class MaterialAppWithTheme extends StatelessWidget {
          //IconButton(icon: Icon(Icons.settings), onPressed: () => routeSettingsPage()),
          ],
          ) 
-       ),
+       )),
        body: TabBarView(
          children: [
            MyHomePage(),
