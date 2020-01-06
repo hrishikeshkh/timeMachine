@@ -1,3 +1,4 @@
+import 'package:beta_time_machine/addfeature/editschedule.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -344,10 +345,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: () {
-                _calendarController.setSelectedDay(
-                  DateTime(dateTime.year, dateTime.month, dateTime.day),
-                  runCallback: true,
-                );
+                // _calendarController.setSelectedDay(
+                //   DateTime(dateTime.year, dateTime.month, dateTime.day),
+                //   runCallback: true,
+                // );
+                MaterialPageRoute(builder: (context) => ScheduleEdit());
               },
             )),
       ],
