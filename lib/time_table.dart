@@ -29,13 +29,42 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   List _selectedEvents;
   AnimationController _animationController;
   CalendarController _calendarController;
-  List<String> mo = ['sc', '12', '30'];
-  List<String> tu = ['sc', '12', '30' ,'tuesday' , '13' , '30'];
-  List<String> we = ['sc', '12', '30'];
-  List<String> th = ['sc', '12', '30'];
-  List<String> fr = ['sc', '12', '30'];
-  List<String> sa = ['sc', '13', '30', 'scsc', '14', '30'];
-  List<String> su = ['sc sc sc', '12', '30' , 'scscscscsc' , '13' , '30'];
+  static Map <String, List> full_timetable = {};
+  // List mo = full_timetable['mon'];
+  // List tu = full_timetable['tue'];
+  // List we = full_timetable['wed'];
+  // List th = full_timetable['thu'];
+  // List fr = full_timetable['fri'];
+  // List sa = full_timetable['sat'];
+  // List su = full_timetable['sun'];
+  List<String> mo = ['Study Chemistry', '12', '30'];
+  List<String> tu = ['Play basketball', '12', '30' ,'Leave for coaching class' , '13' , '30'];
+  List<String> we = ['Study physics', '12', '30'];
+  List<String> th = ['Revise school work', '12', '30'];
+  List<String> fr = ['Study for UT', '12', '30'];
+  List<String> sa = ['Leave for class', '13', '30', 'Study Maths', '14', '30'];
+  List<String> su = ['Study Maths', '12', '30' , 'Study Computer Science' , '13' , '30'];
+
+
+ List daygive (List<List<dynamic>> ott)
+{
+  List taskdays;
+  List <String> days = ['m','t','w','th','f','sa', 'su'];
+  for (var i = 1; i < (ott.length + 1); i++) {
+    taskdays.add(ListTile (title : Text(days[i])));
+    for (var j = 1; j < (ott[i].length + 1); j++)
+    {
+      taskdays.add(ListTile(
+        title:Text (ott[i][j][2]),
+        subtitle: Text (ott[i][j][0].toString() + ':' + ott[i][j][1].toString()),
+        onTap: () {
+          changesc(i,j);
+        },
+      ));
+    }
+  }
+  return taskdays;
+}
 
   @override
   void initState() {
@@ -47,55 +76,34 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     }
     _events = {
       _selectedDay.subtract(Duration(days: 30)): [
-        'Event A0',
-        'Event B0',
-        'Event C0'
+        
       ],
-      _selectedDay.subtract(Duration(days: 27)): ['Event A1'],
+      _selectedDay.subtract(Duration(days: 27)): [],
       _selectedDay.subtract(Duration(days: 20)): [
-        'Event A2',
-        'Event B2',
-        'Event C2',
-        'Event D2'
+        
       ],
-      _selectedDay.subtract(Duration(days: 16)): ['Event A3', 'Event B3'],
+      _selectedDay.subtract(Duration(days: 16)): [],
       _selectedDay.subtract(Duration(days: 10)): [
-        'Event A4',
-        'Event B4',
-        'Event C4'
       ],
       _selectedDay.subtract(Duration(days: 4)): [
-        'Event A5',
-        'Event B5',
-        'Event C5'
       ],
-      _selectedDay.subtract(Duration(days: 2)): ['Event A6', 'Event B6'],
-      _selectedDay: ['Event A7', 'Event B7', 'Event C7', 'Event D7'],
+      _selectedDay.subtract(Duration(days: 2)): [],
+      _selectedDay: [],
       _selectedDay.add(Duration(days: 1)): [
-        'Event A8',
-        'Event B8',
-        'Event C8',
-        'Event D8'
+        
       ],
       _selectedDay.add(Duration(days: 3)):
-          Set.from(['Event A9', 'Event A9', 'Event B9']).toList(),
+          Set.from([]).toList(),
       _selectedDay.add(Duration(days: 7)): [
-        'Event A10',
-        'Event B10',
-        'Event C10'
+        
       ],
-      _selectedDay.add(Duration(days: 11)): ['Event A11', 'Event B11'],
+      _selectedDay.add(Duration(days: 11)): [],
       _selectedDay.add(Duration(days: 17)): [
-        'Event A12',
-        'Event B12',
-        'Event C12',
-        'Event D12'
+
       ],
-      _selectedDay.add(Duration(days: 22)): ['Event A13', 'Event B13'],
+      _selectedDay.add(Duration(days: 22)): [],
       _selectedDay.add(Duration(days: 26)): [
-        'Event A14',
-        'Event B14',
-        'Event C14'
+        
       ],
     };
 

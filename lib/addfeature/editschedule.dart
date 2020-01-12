@@ -59,11 +59,14 @@ class ScheduleEditState extends State<ScheduleEdit>
           )
         ],
       ),
-      body: Container(
+      body: RefreshIndicator( 
+      child: Container(
           child : ListView (
             children : daygive(ott)
           )
       ),
+      onRefresh: _refresh
+      )
     );
   }
 
@@ -94,6 +97,6 @@ void changesc(i,j)
   ));
 }
 
-void refresh(){
-
+Future<Null> _refresh() async{
+  
 }

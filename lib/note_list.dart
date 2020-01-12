@@ -32,7 +32,7 @@ class NoteListState extends State<NoteList> {
     return Scaffold(
 
 	    appBar: AppBar(
-		    title: Text('Notes'),
+		    title: Text('To-Do'),
 	    ),
 
 	    body: getNoteListView(),
