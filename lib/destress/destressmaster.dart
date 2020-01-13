@@ -12,38 +12,36 @@ class DestressMaster extends StatelessWidget
       appBar: AppBar(
         title: Text('Welcome To Destress...'),
       ),
-      body: Column(
+      body: ListView(
         children: <Widget>[
           Center(
-            child : Card(
+            child : Container(
+              padding: EdgeInsets.only(top: 10.0),
+              child : Card(
             child: Text('We Trust you not to overdo this' , style: TextStyle(fontSize: 20.0),),
-          )),
-          Row(
-            children: <Widget>[
+          ))),
+          
               Text (' '),
               Card(
-                child: RaisedButton(
-                    child : Text('TIC - TAC - TOE') ,
-                  onPressed: ()
+              child :  ListTile(
+                  title : Text('TIC - TAC - TOE'),
+                  leading: Icon(Icons.apps),
+                  onTap: ()
                   {
                     Navigator.push(context , MaterialPageRoute(builder: (context) => MyApptic() ));
                   },
-                )
-              ),
-              Text (' '),
+                
+              )),
               Card (
-              child : RaisedButton(
-                child : Text ('SNAKEEE'),
-                onPressed: ()
+              child :  ListTile (
+                title : Text ('SNAKEEE'),
+                leading: Icon(Icons.picture_in_picture),
+                onTap: ()
                 {
                     Navigator.push(context , MaterialPageRoute(builder: (context) => Homesn() ));
                 },
-              )
-              )
-            ],
-          ),
-          Text('KEEP'),
-          Text ('CALM')
+              ))
+           
         ],
       ),
     );

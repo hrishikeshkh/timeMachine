@@ -12,7 +12,7 @@ class DestressMaster extends StatelessWidget
       appBar: AppBar(
         title: Text('Welcome To Destress...'),
       ),
-      body: Column(
+      body: ListView(
         children: <Widget>[
           Center(
             child : Card(

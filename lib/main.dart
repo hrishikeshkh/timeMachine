@@ -99,7 +99,20 @@ class MaterialAppWithTheme extends StatelessWidget {
       title: 'overtime',
       debugShowCheckedModeBanner: false,
       theme: theme.getTheme(),
-      home: DefaultTabController(
+      home : MyAppHome(),
+    );
+  }
+}
+
+class MyAppHome extends StatelessWidget
+{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    final theme = Provider.of<ThemeChanger>(context);
+    final _themeChanger = Provider.of<ThemeChanger>(context);
+    return Container(
+      child : DefaultTabController(
      length: 3,
      child: Scaffold(
       drawer : Drawer(
@@ -122,8 +135,8 @@ class MaterialAppWithTheme extends StatelessWidget {
              // Update the state of the app
              // ...
              // Then close the drawer
-             MaterialPageRoute(builder: (context) => ProTips());
              Navigator.pop(context);
+             Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProTips())); 
            },
          ),
          ListTile(
@@ -189,21 +202,21 @@ class MaterialAppWithTheme extends StatelessWidget {
            DestressMaster(),
          ],
        ),
-       // bottomNavigationBar: BottomAppBar(
-       //   color:  Colors.deepPurple,
-       //   child : Column( 
-       //     children: <Widget>[Text('SC'), RaisedButton( 
-       //       onPressed: ()
-       //       {
-       //         MaterialPageRoute(builder: (context) => HomePageDialogflow()); 
-       //       },
-       //      )],
-       //   )
-       // ),
-     ),
-      ),
+      //  bottomNavigationBar: BottomAppBar(
+      //    color:  Colors.deepPurple,
+      //    child : ListView( 
+      //      children: <Widget>[Text('SC'), RaisedButton( 
+      //        onPressed: ()
+      //        {
+      //          MaterialPageRoute(builder: (context) => HomePageDialogflow()); 
+      //        },
+      //       )],
+      //    )
+      //  ),
+     ))
     );
   }
+  
 }
 
 class Bloc {

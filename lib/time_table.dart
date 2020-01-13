@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   List<String> mo = ['sc', '12', '30'];
   List<String> tu = ['sc', '12', '30' ,'tuesday' , '13' , '30'];
   List<String> we = ['sc', '12', '30'];
-  List<String> th = ['sc', '12', '30'];
+  List<String> th = ['rise and shine', '7', '00' , 'school' ,'8' , '00'  , 'Coaching Class' , '17' , '15' , 'dinner' , '21' , '30' , 'read chemistry' , '22' , '30' , 'sleep time' , '23' , '45'];
   List<String> fr = ['sc', '12', '30'];
   List<String> sa = ['sc', '13', '30', 'scsc', '14', '30'];
   List<String> su = ['sc sc sc', '12', '30' , 'scscscscsc' , '13' , '30'];

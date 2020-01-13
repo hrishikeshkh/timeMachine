@@ -7,17 +7,25 @@ class ProTips extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return MaterialApp(
-        home : Container( 
-          child : Column(
-          children : tips.map((element)=> 
-          Card(
-            color: Colors.yellow,
-            child: Text('$element' , style : TextStyle(color: Colors.black)),
-          )
-          ).toList())
+    return Scaffold(
+        appBar: AppBar(
+          title: (Text('Pro - Tips')) ,
         ),
-    );
+        body: Container( 
+          child : ListView(
+          children : tips.map((element)=> 
+          Column(
+            children : <Widget>[
+          Container(
+            padding: EdgeInsets.all(10.0),
+            color: Colors.white,
+          child :ListTile(
+            title: Text('$element' , style : TextStyle(color: Colors.black , fontSize: 16)),
+          )),
+          Text(' ')]
+          )).toList(),
+        ),
+    ));
   }
   
 }
