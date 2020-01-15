@@ -33,7 +33,7 @@ class DestressMaster extends StatelessWidget
               Text (' '),
               Card (
               child : RaisedButton(
-                child : Text ('SNAKEEE'),
+                child : Text ('SNAKE'),
                 onPressed: ()
                 {
                     Navigator.push(context , MaterialPageRoute(builder: (context) => Homesn() ));
@@ -42,8 +42,10 @@ class DestressMaster extends StatelessWidget
               )
             ],
           ),
-          Text('KEEP'),
-          Text ('CALM')
+          //Text('KEEP'),
+          //Text ('CALM')
+                     Container(child: Image.asset('././assets/images/des.jpeg') , padding: EdgeInsets.only(top : 10.0),)
+
         ],
       ),
     );
