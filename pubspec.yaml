@@ -54,6 +54,7 @@ flutter:
    - assets/credentials.json
    - assets/images/tictac.png
    - assets/images/snake.jpg
+   - assets/images/des.jpeg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

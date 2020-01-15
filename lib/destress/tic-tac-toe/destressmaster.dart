@@ -42,8 +42,9 @@ class DestressMaster extends StatelessWidget
               )
             ],
           ),
-          Text('KEEP'),
-          Text ('CALM')
+         // Text('KEEP'),
+          //Text ('CALM')
+          Image.asset('')
         ],
       ),
     );
