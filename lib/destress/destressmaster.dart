@@ -41,7 +41,7 @@ class DestressMaster extends StatelessWidget
                     Navigator.push(context , MaterialPageRoute(builder: (context) => Homesn() ));
                 },
               )),
-           Container(child: Image.asset('././assets/images/des.jpeg'))
+           Container(child: Image.asset('././assets/images/des.jpeg') , padding: EdgeInsets.only(top : 10.0),)
         ],
       ),
     );
