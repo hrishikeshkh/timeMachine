@@ -3,3 +3,12 @@ build/
 
 #Ignore pubspec.lock
 pubspec.lock
+
+#Ignonre the build folder
+build/
+
+#Ignore pubspec.lock
+pubspec.lock
+
+#Ignore .dart_tool
+.dart_tool/
