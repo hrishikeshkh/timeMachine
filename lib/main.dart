@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import './beta-to-do-list.dart';
-import './settingsPage.dart';
+//import './settingsPage.dart';
 import './time_table.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'chatbot.dart';
@@ -54,7 +54,7 @@ class HomePage extends State<MyAppreal> {
   }
   void routeSettingsPage()
   {
-    MaterialPageRoute(builder: (context) => SettingsPage());
+    //MaterialPageRoute(builder: (context) => SettingsPage());
   }
 
   // String qselect ()

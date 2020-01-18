@@ -34,7 +34,7 @@ class DestressMaster extends StatelessWidget
               )),
               Card (
               child :  ListTile (
-                title : Text ('SNAKEEE'),
+                title : Text ('SNAKE'),
                 leading: Icon(Icons.picture_in_picture),
                 onTap: ()
                 {
