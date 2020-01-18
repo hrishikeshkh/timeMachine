@@ -32,13 +32,13 @@ class NoteListState extends State<NoteList> {
     return Scaffold(
 
 	    appBar: PreferredSize(
-        preferredSize: Size.fromHeight(10.0),
+       preferredSize: Size.fromHeight(10.0),
       child : AppBar(
 		    title: Text('To-Do'),
 	    )),
 
 	    body: getNoteListView(),
-
+      //backgroundColor: Theme.of(context).accentColor,
 	    floatingActionButton: FloatingActionButton(
 		    onPressed: () {
 		      debugPrint('FAB clicked');
@@ -61,7 +61,7 @@ class NoteListState extends State<NoteList> {
 			itemCount: count,
 			itemBuilder: (BuildContext context, int position) {
 				return Card(
-					color: Colors.white,
+					//color: Colors.white,
 					elevation: 2.0,
 					child: ListTile(
 
