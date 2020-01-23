@@ -420,10 +420,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             child: Column(children: <Widget>[
               Row(
                 children: <Widget>[
-                  Text('     '),
+                  Text(''),
                   Column(
                     children: daytask
-                        .map((task) => Column(children: <Widget>[
+                        .map((task) => SafeArea(
+                        child : Column(children: <Widget>[
+                              //ListView(
+                              //  children : <Widget>[
                               Text(
                                 '',
                                 style: TextStyle(
@@ -436,7 +439,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                               ),
                                 Text('---------------------')
 
-                            ]))
+                        //] ,
+                        //scrollDirection: Axis.horizontal,
+                        ])))
                         .toList(),
                   ),
                   Text('         ', style: TextStyle(fontSize: 35.0)),
