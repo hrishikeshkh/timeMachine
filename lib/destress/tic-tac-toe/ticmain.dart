@@ -10,6 +10,7 @@ import './ResetButton.dart';
 import './ScoreBoard.dart';
 import './destressmaster.dart';
 
+
 List<int> boolPlayer = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 bool player = true;
@@ -86,10 +87,10 @@ class MyAppState extends State<MyApptic> with FlareController {
           ),
           actions: <Widget>[
             ResetButton(resetButtonOnPress),
-            FloatingActionButton(
-              child : Icon (Icons.arrow_back),
+            IconButton(
+              icon : Icon (Icons.arrow_back),
               onPressed: (){
-                Navigator.push(context , MaterialPageRoute(builder: (context) => DestressMaster() ));
+                Navigator.pop(context);
               },
             )
           ],

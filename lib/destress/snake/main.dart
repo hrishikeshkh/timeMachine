@@ -11,27 +11,25 @@ class Homesn extends StatelessWidget {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return new Scaffold(
+      appBar: AppBar(
+        title:  Text('Snake'),
+        actions: <Widget>[
+          IconButton(
+            icon : Icon (Icons.arrow_back),
+            onPressed :(){
+             Navigator.pop((context));
+            }
+          )
+        ],
+      ),
         backgroundColor: const Color(0xFF000000),
         body:
-        SafeArea( 
-          child : Center( 
-        child : Column(
-         children : <Widget>[
-           Text (' '),
-           FloatingActionButton (
-             child :Icon(Icons.arrow_back , color: Colors.white,),
-             onPressed: (){
-                Navigator.push(context , MaterialPageRoute(builder: (context) => DestressMaster() ));
-                Navigator.pop(context);
-             },
-           ),
-           Text(' '),
            Center(
           // Center is a layout widget. It takes a single child and positions it
           // in the middle of the parent.
           child: new Game(),
-        )]
+        
          ) // This trailing comma makes auto-formatting nicer for build methods.
-        )));
+        );
   }
 }

@@ -160,8 +160,7 @@ class MyAppHome extends StatelessWidget
              Tab(icon: Icon(Icons.casino)),
            ],
          ),
-         title: SafeArea(child : Row(           
-           children: <Widget>[Text('Overtime'),
+         title: Text('OverTime'),
            //Text('  '),
           //  Switch(
           //    value: ch,
@@ -176,6 +175,7 @@ class MyAppHome extends StatelessWidget
           //      }
           //    },
           //  )
+        actions : <Widget>[
          FlatButton(
            padding: EdgeInsets.only(right : 10.0 , left : 80),
            child : Text('Go Dark'),
@@ -190,10 +190,8 @@ class MyAppHome extends StatelessWidget
               _themeChanger.setTheme(ThemeData.light());
             },
          )
-         //IconButton(icon: Icon(Icons.settings), onPressed: () => routeSettingsPage()),
-         ],
-         ) 
-       )),
+         ]//IconButton(icon: Icon(Icons.settings), onPressed: () => routeSettingsPage()),
+       ),
        body: TabBarView(
          children: [
            MyHomePage(),
