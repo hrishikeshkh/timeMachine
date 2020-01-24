@@ -13,6 +13,7 @@ import 'changetheme/theme.dart';
 import 'addfeature/protips.dart';
 import 'package:dynamic_theme/theme_switcher_widgets.dart';
 import './destress/destressmaster.dart';
+import './marksgraph.dart';
 
 //import 'package:table_calendar/table_calendar.dart';
 
@@ -96,7 +97,7 @@ class MaterialAppWithTheme extends StatelessWidget {
     final _themeChanger = Provider.of<ThemeChanger>(context);
     //double width = MediaQuery.of(context).size.width;
     return MaterialApp(
-      title: 'overtime',
+      title: 'OverTime',
       debugShowCheckedModeBanner: false,
       theme: theme.getTheme(),
       home : MyAppHome(),
@@ -140,10 +141,11 @@ class MyAppHome extends StatelessWidget
            },
          ),
          ListTile(
-           title: Text('Update your Marks'),
+           title: Text('Destress'),
            onTap: () {
-             //MaterialPageRoute(builder: (context) => marksupdate());
               Navigator.pop(context);
+
+             Navigator.of(context).push(MaterialPageRoute(builder: (context) => DestressMaster()));
            },
          ),
        ],
@@ -157,7 +159,7 @@ class MyAppHome extends StatelessWidget
              Tab(icon: Icon(Icons.timer)),
              Tab(icon: Icon(Icons.list)),
              //Tab(icon: Icon(Icons.timeline)),
-             Tab(icon: Icon(Icons.casino)),
+             Tab(icon: Icon(Icons.graphic_eq)),
            ],
          ),
          title: Text('OverTime'),
@@ -197,7 +199,7 @@ class MyAppHome extends StatelessWidget
            MyHomePage(),
            Todolist(),
            //Icon(Icons.directions_bike),
-           DestressMaster(),
+           HomePagemks(),
          ],
        ),
       //  bottomNavigationBar: BottomAppBar(

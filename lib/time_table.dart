@@ -141,10 +141,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       //backgroundColor: Colors.yellow.withOpacity(0.8),
-      appBar: AppBar(
+      appBar: 
+      PreferredSize( 
+        preferredSize: Size.fromHeight(100.0),
+        child : AppBar(
         //backgroundColor: Colors.deepPurple,
         title: Text('Time-Table'),
-      ),
+      )),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
@@ -344,22 +347,22 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     return Column(
       children: <Widget>[
         const SizedBox(height: 6.0),
-        ButtonTheme(
-            buttonColor: Colors.deepPurple,
-            minWidth: 400.0,
-            child: RaisedButton(
-              child: Text(
-                'Edit Today\'s schedule',
-                style: TextStyle(color: Colors.white),
-              ),
-              onPressed: () {
+        //ButtonTheme(
+            //buttonColor: Colors.deepPurple,
+            //minWidth: 400.0,
+            //child: RaisedButton(
+              //child: Text(
+                //'Edit Today\'s schedule',
+                //style: TextStyle(color: Colors.white),
+              //),
+              //onPressed: () {
                 // _calendarController.setSelectedDay(
                 //   DateTime(dateTime.year, dateTime.month, dateTime.day),
                 //   runCallback: true,
                 // );
-                MaterialPageRoute(builder: (context) => ScheduleEdit());
-              },
-            )),
+                //MaterialPageRoute(builder: (context) => ScheduleEdit());
+              //},
+   //         ),
       ],
     );
   }
@@ -444,7 +447,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                         ])))
                         .toList(),
                   ),
-                  Text('         ', style: TextStyle(fontSize: 35.0)),
+                  Text('    ', style: TextStyle(fontSize: 35.0)),
                   SafeArea(
                    child : Column(
                       children: times
