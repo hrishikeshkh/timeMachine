@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import './beta-to-do-list.dart';
+import './inputs.dart';
 //import './settingsPage.dart';
 import './time_table.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -45,7 +46,7 @@ class HomePage extends State<MyAppreal> {
   @override
   Widget build(BuildContext context) {
       return ChangeNotifierProvider<ThemeChanger>(
-        builder: (_) => ThemeChanger(ThemeData.dark()),
+        create: (_) => ThemeChanger(ThemeData.dark()),
 
        child : new MaterialAppWithTheme()
       );
@@ -146,6 +147,14 @@ class MyAppHome extends StatelessWidget
               Navigator.pop(context);
 
              Navigator.of(context).push(MaterialPageRoute(builder: (context) => DestressMaster()));
+           },
+         ),
+         ListTile(
+           title: Text('Input'),
+           onTap: () {
+              Navigator.pop(context);
+
+             Navigator.of(context).push(MaterialPageRoute(builder: (context) => Inputs()));
            },
          ),
        ],
